@@ -24,10 +24,23 @@ const PropertyCard = ({
   const navigation = useNavigation();
   return (
     <View>
-      <Pressable  style={{ margin: 15, flexDirection: "row", backgroundColor: "white" }}>
+      <Pressable 
+       onPress={() => navigation.navigate("Info",{
+        name:property.name,
+        rating:property.rating,
+        oldPrice:property.oldPrice,
+        newPrice:property.newPrice,
+        photos:property.photos,
+        availableRooms:property.rooms,
+        adults:adults,
+        children:children,
+        rooms:rooms,
+        selectedDates:selectedDates,
+      })}
+      style={{ margin: 15, flexDirection: "row", backgroundColor: "white" }}>
       <View>
       <Image
-        style={{ height: height / 4, width: width - 280 }}
+        style={{ height: height * 0.4, width: width - 270 }}
         source={{ uri: property.image }}
       />
       </View>
