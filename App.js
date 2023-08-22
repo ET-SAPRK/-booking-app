@@ -10,7 +10,7 @@ export default function App() {
     <>
       <Provider store={store}>
         <StackNavigator />
-        {/* <ModalPortal /> */}
+        <ModalPortal />
       </Provider>
     </>
   );
