@@ -44,7 +44,7 @@ const Header = () => {
           
         }}
       >
-       <Ionicons name="ios-airplane-outline" size={26} color="white" />
+       <Ionicons name="ios-airplane-outline" size={24} color="white" />
         <Text
           style={{
             marginLeft: 8,
@@ -64,7 +64,7 @@ const Header = () => {
          
         }}
       >
-        <Ionicons name="car-outline" size={26} color="white" />
+        <Ionicons name="car-outline" size={24} color="white" />
         <Text
           style={{
             marginLeft: 8,
@@ -85,7 +85,7 @@ const Header = () => {
          
         }}
       >
-        <FontAwesome5 name="uber" size={26} color="white" />
+        <FontAwesome5 name="uber" size={24} color="white" />
         <Text
           style={{
             marginLeft: 8,
