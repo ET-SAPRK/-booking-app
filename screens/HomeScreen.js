@@ -162,7 +162,7 @@ const HomeScreen = () => {
            <Ionicons name="person-outline" size={24} color="black" />
               <TextInput
                 placeholderTextColor="red"
-                placeholder=" room •  adults • Children"
+                placeholder={` ${rooms} room • ${adults} adults • ${children} Children`}
               />
         </Pressable>
         <Pressable
@@ -198,9 +198,9 @@ const HomeScreen = () => {
           <ModalFooter>
             <ModalButton
               text="Apply"
+              textStyle={{color: 'white'}}
               style={{
                 marginBottom: 20,
-                color: "white",
                 backgroundColor: "#003580",
               }}
               onPress={() => setModalVisibile(!modalVisibile)}
