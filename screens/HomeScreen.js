@@ -72,11 +72,11 @@ const HomeScreen = () => {
   return (
     <>
     <View>
+      <ScrollView style={{marginBottom: 25}}>
       <Header />
-      <ScrollView>
       <View
             style={{
-              margin: 20,
+              margin: 10,
               borderColor: "#FFC72C",
               borderWidth: 3,
               borderRadius: 6,
@@ -187,6 +187,36 @@ const HomeScreen = () => {
           </Text>
         </Pressable>
       </View>
+      <Text
+        style={{ marginHorizontal: 20, fontSize: 17, fontWeight: "500" }}
+      >
+         Travel More spend less
+      </Text>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+      <Pressable
+        style={{
+          width: 200,
+          height: 150,
+          marginTop: 10,
+          backgroundColor: "#003580",
+          borderRadius: 10,
+          padding: 20,
+          marginHorizontal: 20,
+        }}
+      >
+         <Text
+            style={{
+              color: "white",
+              fontSize: 15,
+              fontWeight: "bold",
+              marginVertical: 7,
+            }}
+          > Genius
+          </Text>
+      </Pressable>
+      </ScrollView>
+
+
       </ScrollView>
     </View>
 
