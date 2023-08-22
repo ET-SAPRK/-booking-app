@@ -69,6 +69,34 @@ const HomeScreen = () => {
       />
     );
   };
+  const searchPlaces = (place) => {
+    if(!route.params || !selectedDates){
+      Alert.alert(
+        "Invalid Details",
+        "Please enter all the details",
+        [
+          {
+            text: "Cancel",
+            onPress: () => console.log("Cancel Pressed"),
+            style: "cancel"
+          },
+          { text: "OK", onPress: () => console.log("OK Pressed") }
+        ],
+        { cancelable: false }
+      );
+    }
+
+    if(route.params && selectedDates){
+      navigation.navigate("Places",{
+        rooms:rooms,
+        adults:adults,
+        children:children,
+        selectedDates:selectedDates,
+        place:place
+      })
+    }
+  };
+
   return (
     <>
     <View>
@@ -97,7 +125,9 @@ const HomeScreen = () => {
            <Feather name="search" size={24} color="black" />
            <TextInput
                 placeholderTextColor="black"
-                placeholder= "Enter Your Destination"
+                placeholder={
+                  route?.params ? route.params.input : "Enter Your Destination"
+                }
               />
         </Pressable>
         <Pressable
@@ -166,7 +196,7 @@ const HomeScreen = () => {
               />
         </Pressable>
         <Pressable
-              onPress={() => {}}
+              onPress={() => searchPlaces(route?.params.input)}
               style={{
                 paddingHorizontal: 10,
                 borderColor: "#FFC72C",
