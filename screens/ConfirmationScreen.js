@@ -25,8 +25,19 @@ const ConfirmationScreen = () => {
       },
     });
   }, []);
+  const dispatch = useDispatch();
   const confirmBooking = async () => {
+    dispatch(savedPlaces(route.params));
 
+    // await setDoc(
+    //   doc(db, "users", `${uid}`),
+    //   {
+    //     bookingDetails: { ...route.params },
+    //   },
+    //   {
+    //     merge: true,
+    //   }
+    // );
     navigation.navigate("Main");
   }
   return (
