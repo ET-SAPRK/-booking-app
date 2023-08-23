@@ -33,7 +33,7 @@ const Amenities = () => {
     },
   ];
   return (
-    <View style={{ padding: 10 }}>
+    <View style={{ padding: 10 , marginBottom: 50}}>
       <Text style={{ fontSize: 17, fontWeight: "600" }}>
         Most Popular Facilities
       </Text>
