@@ -6,18 +6,41 @@ import {
   KeyboardAvoidingView,
   TextInput,
   Pressable,
+  StatusBar,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
+import { auth } from "../firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
+
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigation = useNavigation();
 
+  
   const login = () => {
+    signInWithEmailAndPassword(auth,email,password).then((userCredential) => {
+      //  console.log("user credential", userCredential);
+       const user = userCredential.user;
+    })
+}
 
+useEffect(() => {
+  try {
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        navigation.replace("Main");
+      }
+    });
+
+    return unsubscribe;
+  } catch (e) {
+    console.log(e);
   }
+}, []);
+
   return (
     <SafeAreaView
       style={{
@@ -27,6 +50,7 @@ const LoginScreen = () => {
         alignItems: "center",
       }}
     >
+     <StatusBar backgroundColor='#003580' />
       <KeyboardAvoidingView>
       <View
           style={{
@@ -42,7 +66,7 @@ const LoginScreen = () => {
             Sign In to Your Account
           </Text>
         </View>
-        <View style={{ marginTop: 50 }}>
+        <View style={{ marginTop: 30 }}>
         <View>
            <Text style={{ fontSize: 18, fontWeight: "600", color: "gray" }}>
               Email
@@ -104,6 +128,14 @@ const LoginScreen = () => {
             }}
           >
             Login
+          </Text>
+        </Pressable>
+        <Pressable
+          onPress={() => navigation.navigate("Register")}
+          style={{ marginTop: 20 }}
+        >
+          <Text style={{ textAlign: "center", color: "gray", fontSize: 17 }}>
+            Don't have an account? Sign up
           </Text>
         </Pressable>
       </KeyboardAvoidingView>
